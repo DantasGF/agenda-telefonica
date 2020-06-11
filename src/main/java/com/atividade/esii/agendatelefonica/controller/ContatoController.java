@@ -28,5 +28,9 @@ public class ContatoController {
 		return new ResponseEntity<>(repository.save(contato), HttpStatus.OK);
 	}
 	
+	@GetMapping("/contatos")
+	public ResponseEntity<?> listar(){
+		return new ResponseEntity<>(repository.findAll(), HttpStatus.OK);
+	}
 	
 }
