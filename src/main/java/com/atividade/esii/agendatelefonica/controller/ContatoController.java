@@ -3,6 +3,7 @@ package com.atividade.esii.agendatelefonica.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,5 +42,11 @@ public class ContatoController {
 	@PutMapping("/contatos")
 	public ResponseEntity<?> atualizar(@RequestBody Contato contato){
 		return new ResponseEntity<>(repository.save(contato), HttpStatus.OK);
+	}
+	
+	@DeleteMapping("/contatos/{id}")
+	public ResponseEntity<?> deletar(@PathVariable(value = "id") long id){
+		repository.deleteById(id);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }
