@@ -33,4 +33,8 @@ public class ContatoController {
 		return new ResponseEntity<>(repository.findAll(), HttpStatus.OK);
 	}
 	
+	@GetMapping("/contatos/{id}")
+	public ResponseEntity<?> listarPorId(@PathVariable(value = "id") long id){
+		return new ResponseEntity<>(repository.findById(id), HttpStatus.OK);
+	}
 }
