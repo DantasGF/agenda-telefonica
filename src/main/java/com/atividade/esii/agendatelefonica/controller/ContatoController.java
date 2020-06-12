@@ -37,4 +37,9 @@ public class ContatoController {
 	public ResponseEntity<?> listarPorId(@PathVariable(value = "id") long id){
 		return new ResponseEntity<>(repository.findById(id), HttpStatus.OK);
 	}
+	
+	@PutMapping("/contatos")
+	public ResponseEntity<?> atualizar(@RequestBody Contato contato){
+		return new ResponseEntity<>(repository.save(contato), HttpStatus.OK);
+	}
 }
